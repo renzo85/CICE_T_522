@@ -55,7 +55,7 @@ class Attack:
 
     def __repr__(self): #repr se usa cuando no sea un str #su proposito es la manera de impresion del ataque
         return f"{self.name}"
-    
+
 
 charmander = Pokemon("Charmander", elements[0], 120)
 squirtle = Pokemon("Squirtle", elements[2], 140 )
@@ -65,19 +65,22 @@ flamethrower = Attack("flamethrower", elements[0], 40)
 razor_leaf = Attack("razor_Leaf", elements[1], 25)
 surf = Attack("surf", elements[2], 35)
 
-
 charmander.learn(flamethrower)
 charmander.learn(razor_leaf)
 charmander.learn(surf)
+bulbasaur.learn(razor_leaf)
+squirtle.learn(surf)
 
+    
+pokemons = [charmander, squirtle, bulbasaur]
 
-print (charmander)
-# print (squirtle)
-# print (bulbasaur)
+# print (charmander)
+# # print (squirtle)
+# # print (bulbasaur)
 
-for i, attack in enumerate(charmander.attacks):
-    print(f"{i + 1}. {attack}")
+# for i, attack in enumerate(charmander.attacks):
+#     print(f"{i + 1}. {attack}")
 
-user = int(input("Choose: "))
-bulbasaur.receive_damage(charmander.attacks[user -1])
-print(bulbasaur)
+# user = int(input("Choose: "))
+# bulbasaur.receive_damage(charmander.attacks[user -1])
+# print(bulbasaur)
