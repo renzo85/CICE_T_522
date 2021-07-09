@@ -22,6 +22,7 @@ class Pokemon:
         self.element = element
         self.HP = HP
         self.attacks = []
+        self.is_alive = True
 
     def __str__(self):
         return f"name: {self.name}\ntype:{self.element}\nHP:{self.HP}\nattacks:{self.attacks}"
@@ -32,14 +33,18 @@ class Pokemon:
     def receive_damage(self, attack):
         if attack.element == self.element:
             self.HP -= attack.damage
+            self.is_alive = True if self.HP > 0 else False
         else:
             remain_elements = elements.copy() #se crea una copia de la lista para alterarla
             remain_elements.remove(self.element) 
 
             if attack.element == remain_elements[0]:
-                self.HP -= attack.damage * 1.5 
+                self.HP -= attack.damage * 1.5
+                self.is_alive = True if self.HP > 0 else False 
             else:
                 self.HP -= attack.damage * 0.5
+                self.is_alive = True if self.HP > 0 else False
+
 
        
 
